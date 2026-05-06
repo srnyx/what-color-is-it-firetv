@@ -1,33 +1,44 @@
-@font-face {
-	font-family: "Open Sans";
-	font-style: normal;
-	font-weight: 400;
-	src: local('Roboto'), local('Roboto-Regular'),
-		url('roboto-v15-latin-regular.woff2') format('woff2'),
-		url('roboto-v15-latin-regular.woff') format('woff');
-}
-
 body {
 	margin: 0;
 	padding: 0;
+	--time-size: 100px;
+	min-height: 100vh;
+	overflow: hidden;
 	transition: all 0.8s;
+	text-align: center;
+	position: relative;
+}
+
+.clock-stack {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
 }
 
 h1 {
-	font-family: "Roboto", sans-serif;
-	font-size: 6em;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 	font-weight: 400;
-	color: white;
-	text-align: center;
-	width: 100%;
+	margin: 0;
+	line-height: 0.9;
+	white-space: nowrap;
+	font-size: clamp(3rem, 10vw, 6.75rem);
 }
 
-.centered {
-	position: fixed;
-	top: 40%;
+h3 {
+	position: absolute;
 	left: 50%;
-	transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
+	top: calc(50% + (var(--time-size, 100px) * 0.58));
+	transform: translateX(-50%);
+	font-weight: 400;
+	margin: 0;
+	min-height: 1.3em;
+	line-height: 1.1;
+	white-space: nowrap;
+	font-size: clamp(1.4rem, 4vw, 2.5rem);
+	max-width: min(92vw, 1100px);
 }
 
 video {
@@ -36,6 +47,10 @@ video {
 
 @media (max-width: 1024px) {
 	h1 {
-		font-size: 3em;
+		font-size: clamp(2.5rem, 11vw, 5.5rem);
+	}
+	
+	h3 {
+		font-size: clamp(1rem, 4vw, 1.8rem);
 	}
 }

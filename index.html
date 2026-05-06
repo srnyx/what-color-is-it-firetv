@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -8,9 +8,12 @@
 	<script src="./assets/script.js"></script>
 </head>
 <body>
-	<h1 class="centered" id="time">13 : 37</h1>
-	<video width="1" height="1" autoplay="autoplay" loop>
+	<video width="1" height="1" autoplay="autoplay" loop muted playsinline webkit-playsinline preload="auto" aria-hidden="true" tabindex="-1">
 		<source src="./assets/dummy_video.mp4" type="video/mp4" />
 	</video>
+	<div class="clock-stack">
+		<h1 id="time">67 : 67 : 67</h1>
+		<h3 id="font"></h3>
+	</div>
 </body>
 </html>
