@@ -1,4 +1,4 @@
-const fontStyles = ["Arial", "Comic Sans MS", "Impact", "Courier New", "Lucida Console", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana"];
+const fontStyles = ["Arial", "Courier New", "Times New Roman", "Verdana"];
 
 let is12HourFormat = true;
 let fontSize = 100;
@@ -161,7 +161,7 @@ window.onload = () => {
  * @returns	{number}	Ideal font size in pixels
  */
 function getIdealTimeSize() {
-	return Math.round(Math.min(window.innerWidth * 0.11, window.innerHeight * 0.16));
+    return Math.round(Math.min(window.innerWidth * 0.15, window.innerHeight * 0.25));
 }
 
 /**

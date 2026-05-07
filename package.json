@@ -1,0 +1,23 @@
+{
+  "name": "com.srnyx.whatcolorisit",
+  "displayName": "What Color Is it",
+  "version": "1.0.0",
+  "description": "A Fire TV app that displays the current time and color of the screen",
+  "author": "srnyx",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "devDependencies": {
+    "cordova-android": "^15.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  }
+}
