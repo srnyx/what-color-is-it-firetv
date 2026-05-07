@@ -3,6 +3,8 @@ const fontStyles = ["Arial", "Courier New", "Times New Roman", "Verdana"];
 let is12HourFormat = true;
 let fontSize = 100;
 let fontStyle = 0;
+
+let wakeLock = null;
 let fontNotification = null;
 
 const MIN_FONT_SIZE = 20;
@@ -79,18 +81,34 @@ function displayFontNotification(message) {
 }
 
 /**
+ * Request wake lock to prevent TV from turning off
+ */
+function requestWakeLock() {
+	if ("wakeLock" in navigator) {
+		navigator.wakeLock.request("screen").then(lock => {
+			wakeLock = lock;
+			wakeLock.addEventListener("release", () => {
+				wakeLock = null;
+			});
+		}).catch(() => {
+			wakeLock = null;
+		});
+	}
+}
+
+/**
  * Keep dummy video playing in the background to prevent TV from turning off
  */
 function keepVideoPlaying() {
 	const video = document.querySelector("video");
-	if (!video) return;
-	video.play().catch(() => {});
+	if (video) video.play().catch(() => {});
 }
 
 window.onload = () => {
 	updateScreen();
 	updateFontStyle(0);
 	updateFontSize(getIdealTimeSize());
+	requestWakeLock();
 	keepVideoPlaying();
 	
 	// Intervals
